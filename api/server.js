@@ -20,7 +20,7 @@ const checkRateLimit = require('../lib/rate-limit')(process.env.CORSANYWHERE_RAT
 const cors_proxy = require('../lib/cors-anywhere').createServer({
   originBlacklist: originBlacklist,
   originWhitelist: originWhitelist,
-
+  requireHeader: ['origin', 'x-requested-with'],
   checkRateLimit: checkRateLimit,
   removeHeaders: [
     'cookie',
